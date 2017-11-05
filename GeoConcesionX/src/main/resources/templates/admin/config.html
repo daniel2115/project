@@ -1,0 +1,372 @@
+<!doctype html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/veneto-admin.min.css">
+        <link rel="stylesheet" href="/demo/css/demo.css">
+        <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.css">
+
+    </head>
+
+<!-- 	CABECAERA DE MENU -->
+
+    <body class="">
+        <header>
+            <nav class="navbar navbar-default navbar-static-top no-margin" role="navigation">
+                <div class="navbar-brand-group">
+                    <a class="navbar-sidebar-toggle navbar-link" data-sidebar-toggle>
+                        <i class="fa fa-lg fa-fw fa-bars"></i>
+                    </a>
+                    <a class="navbar-brand hidden-xxs" href="#">
+                        <span class="sc-hidden">
+                            <span class="bold">Geo</span>
+                            Concesion
+                        </span>
+                    </a>
+                </div>
+                <ul class="nav navbar-nav navbar-nav-expanded pull-right margin-md-right">
+                    <li class="hidden-xs">
+                        <form class="navbar-form">
+                            <div class="navbar-search">
+                                Código de Busqueda: <input type="text" placeholder="Search &hellip;" class="form-control">
+                                <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:;">
+                            <i class="glyphicon glyphicon-globe"></i>
+                            <span class="badge badge-up badge-danger badge-small">0</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-notifications pull-right">
+							<!-- Lista de Notificaciones Globales-->
+						</ul>
+                    </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle navbar-user" href="javascript:;">
+                            <img class="img-circle" src="http://3.bp.blogspot.com/-ti-MI9Zl3nM/VWcvaDixo3I/AAAAAAAAAJQ/nI7svyjT5vg/s1600/usuario.png">
+                            <span class="hidden-xs">Usuario Registrado</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu pull-right-xs">
+                            <li class="arrow"></li>
+                            <li><a href="#">Mensajes</a></li>
+                            <li><a th:href="@{'/menu/config'}">Opciones</a></li>
+                            <li class="divider"></li>
+                            <li><a th:href="@{'/'}">Cerrar Sesion</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+            </nav>
+</header>
+ <!-- FIN CABECAERA DE MENU -->   
+
+
+<!-- MENU IZQUIERDA, VERTICAL -->
+ <div class="page-wrapper">
+            <aside class="sidebar sidebar-default">
+                <div class="sidebar-profile">
+                    <img class="img-circle profile-image" src="http://3.bp.blogspot.com/-ti-MI9Zl3nM/VWcvaDixo3I/AAAAAAAAAJQ/nI7svyjT5vg/s1600/usuario.png">
+
+                    <div class="profile-body">
+                        <h4>Usuario</h4>
+						<!--Elementos Minituara-->
+                        <div class="sidebar-user-links">
+                            <a class="btn btn-link btn-xs" href="#"       data-placement="bottom" data-toggle="tooltip" data-original-title="Messages"><i class="fa fa-envelope"></i></a>
+                            <a class="btn btn-link btn-xs" th:href="@{'/menu/config'}" data-placement="bottom" data-toggle="tooltip" data-original-title="Settings"><i class="fa fa-cog"></i></a>
+                            <a class="btn btn-link btn-xs" th:href="@{'/'}" data-placement="bottom" data-toggle="tooltip" data-original-title="Logout"><i class="fa fa-sign-out"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <nav>
+                    <h5 class="sidebar-header">Navegacion</h5>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="nav-dropdown">
+                            <a href="#" title="Top investment">
+                                <i class="fa fa-lg fa-fw fa-home"></i>Inversion
+                            </a>
+                            <ul class="nav-sub">
+                                <li>
+                                   <a th:href="@{'/menu'}"  title="Dashboard">
+                                        <i class="fa fa-fw fa-caret-right"></i>Inicio
+                                    </a>
+                                </li>
+                                <li>
+                                    <a th:href="@{'/menu/detalle'}" title="Analytics Overview">
+                                        <i class="fa fa-fw fa-caret-right"></i> Detalles   
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown">
+                            <a href="#" title="Users">
+                                <i class="fa fa-lg fa-fw fa-envelope-o"></i> Sugerencia
+                            </a>
+                        </li>        
+                        <li class="nav-dropdown">
+                            <a th:href="@{'/menu/config'}"  title="Maps">
+                                <i class="fa fa-lg fa-fw fa-cogs"></i> Opciones
+                            </a>
+                        </li>
+                        <li class="nav-dropdown">
+                            <a href="#" title="Pages">
+                                <i class="fa fa-lg fa-fw fa-list-ol"></i> Top List
+                            </a>
+                            <ul class="nav-sub">
+                                <li>
+                                    <a href="#" title="Basic Tables">
+                                        <i class="fa fa-fw fa-caret-right"></i> Top Concesiones
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Sign In">
+                                        <i class="fa fa-fw fa-caret-right"></i> Top Áreas indefinidas
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown">
+                            <a href="#" title="Menu Levels">
+                                <i class="fa fa-lg fa-fw fa-star"></i> Favoritos
+                            </a>
+                            <ul class="nav-sub">
+                                <li>
+                                    <a th:href="@{'/menu/favo'}" title="Level 2.1">
+                                        <i class="fa fa-fw fa-folder-open"></i>
+                                        Concesiones
+                                    </a>
+                                </li>
+                                <li>
+                                    <a th:href="@{'/menu/favo/lugar'}" title="Level 2.2">
+                                        <i class="fa fa-fw fa-folder-open"></i>
+                                        Lugares Disponibles
+                                    </a>
+                                </li>
+                                <li>
+                                    <a th:href="@{'/menu/favo/petit'}" title="Level 2.3">
+                                        <i class="fa fa-fw fa-folder-open"></i>
+                                        Petitorios
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+					
+                    <h5 class="sidebar-header">Indicadores</h5>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-fw fa-circle text-danger"></i>
+                                 Concesiones Ocupadas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-fw fa-circle text-success"></i>
+                                 Áreas no definidas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-fw fa-circle text-info"></i>
+								 Concesiones vencidas
+                            </a>
+                        </li>
+                    </ul>
+                    <h5 class="sidebar-header">Estadisticas</h5>
+                    <ul class="sidebar-summary">
+                        <li>
+                            <div class="mini-chart mini-chart-block">
+                                <div class="chart-details">
+                                    <div class="chart-name">Concesiones realizadas</div>
+                                    <div class="chart-value">885</div>
+                                </div>
+                                <div id="mini-chart-sidebar-1" class="chart pull-right"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mini-chart mini-chart-block">
+                                <div class="chart-details">
+                                    <div class="chart-name">Clientes Totales</div>
+                                    <div class="chart-value">12,491</div>
+                                </div>
+                                <div id="mini-chart-sidebar-2" class="chart pull-right"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mini-chart mini-chart-block">
+                                <div class="chart-details">
+                                    <div class="chart-name">Peticiones de Petitorios</div>
+                                    <div class="chart-value">945,013</div>
+                                </div>
+                                <div id="mini-chart-sidebar-3" class="chart pull-right"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <div class="page-content">
+            <div class="page-subheading page-subheading-md"></div>
+<!-- FIN MENU IZQUIERDA, VERTICAL -->    
+
+
+
+
+
+<div class="container-fluid-md">
+    <div class="row">
+        <div class="col-md-7 col-lg-8">
+            <div class="panel panel-default panel-profile-details">
+                <div class="panel-body">
+                    <div class="col-sm-5 text-center">
+                        <img alt="image" class="img-circle img-profile" src="http://3.bp.blogspot.com/-ti-MI9Zl3nM/VWcvaDixo3I/AAAAAAAAAJQ/nI7svyjT5vg/s1600/usuario.png" width="150" height="170"/>
+                    </div>
+                    <div class="col-sm-7 profile-details">
+                        <h3>Usuario</h3>
+                        <p>
+                            <a href="javascript:;" class="text-gray text-no-decoration">
+                                <i class="fa fa-fw fa-envelope"></i>
+                                Send Email
+                            </a>
+                            
+                        </p>
+                    </div>
+                     <div id="miDiv">
+					  	<a th:href="@{'/'}" class="btn btn-flat btn-danger">  &nbsp&nbsp&nbsp&nbspCerrar Sesion&nbsp&nbsp&nbsp&nbsp </a>
+					 </div>
+                </div>
+                <div class="panel-body">
+                    <div class="col-sm-5">
+                        <dl>
+                            <dt>Email</dt>
+                            <dd>timmy@example.com</dd>
+                        </dl>
+                        <dl class="margin-sm-bottom">
+                            <dt>Mobile</dt>
+                            <dd>+1-202-555-0155</dd>
+                        </dl>
+                    </div>
+                    <div class="col-sm-7">
+                        <dl class="margin-sm-bottom">
+                            <dt>Location</dt>
+                            <dd>San Francisco, California, USA</dd>
+                        </dl>
+                    </div>
+                </div>     
+            </div>
+
+            <ul class="nav nav-tabs nav-dark">
+                <li class="active"><a href="#tab1-1" data-toggle="tab">Guia de Ayuda</a></li>
+                <li class=""><a href="#tab1-2" data-toggle="tab">Normas y Reglas</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="tab1-1" class="tab-pane tab-pane-table active">
+                    <div class="table-responsive">
+                        <h4><b>¿Quienes somos?</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>¿Para que sirve GeoConcesion?</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>¿Que es un Petitorio?</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>¿Que es una Concesion?</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>¿Como puedo establecer una peticion de Petitorio?</b></h4>                        ------------------------------------------------------------
+                        <h4><b>¿Donde puedo ver las concesiones?</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>¿Para que sirve el codigo de concesion?</b></h4>
+                        ------------------------------------------------------------
+                    </div>
+                </div>
+                <div id="tab1-2" class="tab-pane tab-pane-table">
+                    <div class="table-responsive">
+                        <h4><b>Regla 01:</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>Regla 01:</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>Regla 01:</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>Regla 01:</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>Regla 01:</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>Regla 01:</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>Regla 01:</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>Regla 01:</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>Regla 01:</b></h4>
+                        ------------------------------------------------------------
+                        <h4><b>Regla 01:</b></h4>
+                        ------------------------------------------------------------    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5 col-lg-4">
+            <div class="panel panel-metric panel-metric-sm">
+                <div class="panel-body panel-body-warning">
+                    <div class="metric-content metric-icon">
+                        <div class="value">
+                           820
+                        </div>
+                        <div class="trend">
+                            <p class="text-success">
+                                <i class="fa fa-chevron-up"></i> 5.1%
+                            </p>
+                        </div>
+                        <div id="metric-sales" class="chart"></div>
+                        <header>
+                            <h3 class="thin">Transacciones Totales</h3>
+                        </header>
+                    </div>
+                </div>
+            </div>
+             <div class="panel panel-metric panel-metric-sm">
+                <div class="panel-body panel-body-info">
+                    <div class="metric-content metric-icon">
+                        <div class="value">
+                            5,730
+                        </div>
+                        <div class="trend">
+                            <p class="text-succes">
+                                <i class="fa fa-chevron-up"></i> 2.3%
+                            </p>
+                        </div>
+                        <div id="metric-orders" class="chart"></div>
+                        <header>
+                            <h3 class="thin">Clientes Totales</h3>
+                        </header>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+    
+  
+   
+</div>
+
+            </div>
+        </div>
+        <script src="/assets/libs/jquery/jquery.min.js"></script>
+        <script src="/assets/bs3/js/bootstrap.min.js"></script>
+        <script src="/assets/plugins/jquery-navgoco/jquery.navgoco.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/assets/plugins/jquery-sparkline/jquery.sparkline.js"></script>
+        <script src="/demo/js/demo.js"></script>
+        <script src="/assets/plugins/flot/jquery.flot.js"></script>
+        <script src="/assets/plugins/flot/jquery.flot.resize.js"></script>
+        <script src="/demo/js/pages-profile.js"></script>
+    </body>
+    
+</html>
